@@ -1,0 +1,130 @@
+:root {
+  --verde-base: #4AD279;
+  --verde-oscuro: #3ca46a;
+  --gris-claro: #f4f4f4;
+  --texto-color: #1b3a2d;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe0f0, #ffb3c6);
+  color: var(--texto-color);
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1 {
+  color: var(--verde-base);
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+p {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 1.2rem;
+}
+
+.boton {
+  display: inline-block;
+  background-color: var(--verde-base);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 5px 10px var(--verde-oscuro);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.boton:hover {
+  background-color: var(--verde-oscuro);
+}
+
+/* Swiper */
+.swiper {
+  width: 90%;
+  max-width: 900px;
+  height: 500px;
+  margin: 0 auto 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(74, 210, 121, 0.3);
+  background-color: white; /* para que se vea bien si la imagen no ocupa todo */
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Cambiado a 'contain' para mostrar la imagen completa */
+  border-radius: 15px;
+  background-color: white; /* Fondo blanco para evitar bordes vacíos feos */
+  
+}
+.swiper-slide img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+/* Corazones SVG animados */
+.corazon-svg {
+  position: fixed;
+  bottom: -40px;
+  width: 30px;
+  height: 30px;
+  fill: #ff4d6d;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 2px #ff1a3c);
+  animation-name: subirCorazonSVG;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes subirCorazonSVG {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  .boton {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  .swiper {
+    height: 320px; /* Aumentado para mejor visibilidad en móviles */
+  }
+  .swiper-slide img {
+    object-fit: contain;
+  }
+}

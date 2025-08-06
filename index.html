@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feliz Cumple Elisa - Galería</title>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+  :root {
+    --verde-base: #4AD279;
+    --verde-oscuro: #3ca46a;
+    --gris-claro: #f4f4f4;
+    --texto-color: #1b3a2d;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffe0f0, #ffb3c6);
+    color: var(--texto-color);
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1 {
+    color: var(--verde-base);
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+  }
+
+  .boton {
+    display: inline-block;
+    background-color: var(--verde-base);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 5px 10px var(--verde-oscuro);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  .boton:hover {
+    background-color: var(--verde-oscuro);
+  }
+
+  /* Swiper */
+  .swiper {
+    width: 90%;
+    max-width: 900px;
+    height: 320px;
+    margin: 0 auto 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(74, 210, 121, 0.3);
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  /* Corazones SVG animados */
+  .corazon-svg {
+    position: fixed;
+    bottom: -40px;
+    width: 30px;
+    height: 30px;
+    fill: #ff4d6d;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 2px #ff1a3c);
+    animation-name: subirCorazonSVG;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  @keyframes subirCorazonSVG {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-110vh) scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 420px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+    .boton {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+    .swiper {
+      height: 240px;
+    }
+  }
+  .swiper-slide {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+}
+
+.swiper-slide img {
+  height: 100% !important;
+  width: auto !important;
+  object-fit: contain !important;
+  border-radius: 15px;
+}
+
+</style>
+</head>
+<body>
+
+  <h1>¡Feliz cumpleaños, amor mio! </h1>
+  <p>Te amo con todo mi corazón, mujer hermosa. Que seas feliz siempre.</p>
+
+  <button id="btn-musica" class="boton">💚 Reproducir nuestra canción</button>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="fotos/a (1).jpg" alt="Imagen 1" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (2).jpg" alt="Imagen 2" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (3).jpg" alt="Imagen 3" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (5).jpg" alt="Imagen 4" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (6).jpg" alt="Imagen 4" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (7).jpg" alt="Imagen 4" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (8).jpg" alt="Imagen 4" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (9).jpg" alt="Imagen 4" />
+      </div>
+      <div class="swiper-slide">
+        <img src="fotos/a (10).jpg" alt="Imagen 4" />
+      </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Paginación -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Reproductor SoundCloud (oculto, se controla con botón) -->
+  <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1263158284&color=%2396907c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+    style="display:none;">
+  </iframe>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- SoundCloud API -->
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+
+  <script>
+    // Inicializar Swiper
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    // Control reproducción SoundCloud
+    const boton = document.getElementById('btn-musica');
+    const iframe = document.getElementById('soundcloud');
+    const widget = SC.Widget(iframe);
+
+    boton.addEventListener('click', () => {
+      widget.play();
+      boton.style.display = 'none';
+      iframe.style.display = 'block'; // mostrar reproductor si quieres
+    });
+
+    // Corazones SVG animados
+    const svgCorazon = `
+      <svg viewBox="0 0 32 29.6" xmlns="http://www.w3.org/2000/svg" >
+        <path d="M23.6 0c-2.7 0-5.1 1.6-6.6 4C15.5 1.6 13.1 0 10.4 0 4.7 0 0 4.7 0 10.4c0 11.6 16 19.2 16 19.2s16-7.6 16-19.2C32 4.7 27.3 0 23.6 0z"/>
+      </svg>
+    `;
+
+    function crearCorazon() {
+      const div = document.createElement('div');
+      div.classList.add('corazon-svg');
+      div.style.left = Math.random() * window.innerWidth + 'px';
+
+      const size = 20 + Math.random() * 30;
+      div.style.width = size + 'px';
+      div.style.height = size + 'px';
+
+      div.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+      div.innerHTML = svgCorazon;
+      document.body.appendChild(div);
+
+      setTimeout(() => {
+        div.remove();
+      }, 10000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+
+</body>
+</html>
